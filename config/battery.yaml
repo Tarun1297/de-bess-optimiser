@@ -1,0 +1,10 @@
+# Battery assumptions for project 1 (day-ahead arbitrage).
+# These are my own assumptions, not data from a real asset.
+
+power_mw: 1.0                 # max charge or discharge rate
+energy_mwh: 2.0               # storage size, so a 2-hour battery
+round_trip_efficiency: 0.88   # share of bought energy that can be sold back
+soc_min_pct: 5                # lowest state of charge, % of energy_mwh
+soc_max_pct: 95               # highest state of charge, % of energy_mwh
+max_cycles_per_day: 1.5       # cap on daily discharge = 1.5 x energy_mwh
+degradation_cost_eur_per_mwh: 0   # cost per MWh discharged; value chosen in Phase 4
