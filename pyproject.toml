@@ -1,0 +1,24 @@
+[project]
+name = "de-bess-optimiser"
+version = "0.1.0"
+description = "Day-ahead arbitrage optimiser for a battery in the German market"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas",         # tables of prices and results
+    "pyarrow",        # read and write Parquet files
+    "entsoe-py",      # download prices from ENTSO-E
+    "pulp",           # linear programme + CBC solver
+    "plotly",         # charts and dashboard
+    "pyyaml",         # read config/battery.yaml
+    "python-dotenv",  # load the API key from .env
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",  # run tests
+    "ruff",    # lint and format
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
