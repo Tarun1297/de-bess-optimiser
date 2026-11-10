@@ -40,6 +40,7 @@ def daily_profits(prices: pd.DataFrame, battery: dict) -> pd.Series:
 if __name__ == "__main__":
     battery = load_battery()
     daily = daily_profits(pd.read_parquet("data/prices_de_lu.parquet"), battery)
+    daily.rename_axis("day").reset_index().to_parquet("data/rule_daily.parquet", index=False)
     month = pd.to_datetime(daily.index).to_period("M")
     monthly = daily.groupby(month).sum() / battery["power_mw"]  # EUR per MW
     print(monthly.round(0).to_string())
