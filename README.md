@@ -16,7 +16,8 @@ The model optimises against known day-ahead prices (perfect foresight), as indus
 Work in progress.
 
 - Done: DE-LU day-ahead prices from January 2023 to October 2026 (62,115 periods), stored in UTC. Prices are hourly until 30 September 2025 and every 15 minutes from 1 October 2025. Tests check for duplicates, missing prices and the period count of every day, including clock-change days (23 or 25 hours).
-- Next: the simple-rule baseline.
+- Done: simple-rule baseline. Each day the battery charges in the cheapest periods that fill it (2 hours, or 8 quarter-hours) and sells the stored energy in the most expensive ones, and skips the day if the trade loses money. Revenue per MW: €54,260 (2023), €63,839 (2024), €72,741 (2025), €82,112 (January to October 2026).
+- Next: the linear-programme optimiser.
 
 ## Set-up
 
@@ -26,6 +27,7 @@ uv venv --python 3.12 .venv
 uv pip install -r pyproject.toml --extra dev
 copy .env.example .env   # then add your ENTSO-E API key
 python src/load_prices.py   # downloads prices to data/prices_de_lu.parquet
+python src/rule_baseline.py # simple-rule revenue per month and year
 pytest
 ```
 
