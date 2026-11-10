@@ -13,7 +13,10 @@ The model optimises against known day-ahead prices (perfect foresight), as indus
 
 ## Status
 
-Work in progress. Set-up is done. Next: load and validate 15-minute prices.
+Work in progress.
+
+- Done: DE-LU day-ahead prices from January 2023 to October 2026 (62,115 periods), stored in UTC. Prices are hourly until 30 September 2025 and every 15 minutes from 1 October 2025. Tests check for duplicates, missing prices and the period count of every day, including clock-change days (23 or 25 hours).
+- Next: the simple-rule baseline.
 
 ## Set-up
 
@@ -22,6 +25,7 @@ uv venv --python 3.12 .venv
 .venv\Scripts\activate
 uv pip install -r pyproject.toml --extra dev
 copy .env.example .env   # then add your ENTSO-E API key
+python src/load_prices.py   # downloads prices to data/prices_de_lu.parquet
 pytest
 ```
 
