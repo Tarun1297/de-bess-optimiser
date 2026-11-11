@@ -7,4 +7,4 @@ round_trip_efficiency: 0.88   # share of bought energy that can be sold back
 soc_min_pct: 5                # lowest state of charge, % of energy_mwh
 soc_max_pct: 95               # highest state of charge, % of energy_mwh
 max_cycles_per_day: 1.5       # cap on daily discharge = 1.5 x energy_mwh
-degradation_cost_eur_per_mwh: 0   # cost per MWh discharged; value chosen in Phase 4
+degradation_cost_eur_per_mwh: 15  # wear cost per MWh discharged; LFP estimate, sources put it at roughly 10-30
