@@ -7,7 +7,8 @@ dependencies = [
     "pandas",         # tables of prices and results
     "pyarrow",        # read and write Parquet files
     "entsoe-py",      # download prices from ENTSO-E
-    "pulp",           # linear programme + CBC solver
+    "pulp",           # writes the linear programme
+    "highspy",        # HiGHS solver that PuLP calls
     "plotly",         # charts and dashboard
     "pyyaml",         # read config/battery.yaml
     "python-dotenv",  # load the API key from .env
