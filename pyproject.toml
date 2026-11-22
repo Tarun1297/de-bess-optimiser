@@ -5,6 +5,7 @@ description = "Day-ahead arbitrage optimiser for a battery in the German market"
 requires-python = ">=3.12"
 dependencies = [
     "pandas",         # tables of prices and results
+    "numpy",          # sorting and arrays in spread_stats and tests
     "pyarrow",        # read and write Parquet files
     "entsoe-py",      # download prices from ENTSO-E
     "pulp",           # writes the linear programme
@@ -12,6 +13,9 @@ dependencies = [
     "plotly",         # charts and dashboard
     "pyyaml",         # read config/battery.yaml
     "python-dotenv",  # load the API key from .env
+    "scipy",          # Mann-Whitney U and Spearman tests
+    "statsmodels",    # regression with autocorrelation-robust standard errors
+    "scikit-learn",   # price forecast (linear regression)
 ]
 
 [project.optional-dependencies]
